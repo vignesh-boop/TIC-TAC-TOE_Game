@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Luckiest+Guy&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 *{
     box-sizing: border-box;
     margin: 0;
@@ -51,6 +52,10 @@ body{
 #levelButton{
     font-size: 50px;
     font-weight: bold;
+    font-family: "Carter One", system-ui;
+     font-weight: 400;
+    font-style: normal;
+    color:rgba(129, 31, 31, 0.822);
 }
 #board{
     display: grid;
@@ -78,10 +83,24 @@ object-fit: cover;
     border-radius: 20px;
     position: relative;
     top: 40px;
+    font-family: "Carter One", system-ui;
+     font-weight: 400;
+    font-style: normal;
+    color:rgba(129, 31, 31, 0.822);
 }
 #resetButtonDiv{
     display: flex;
     gap: 20px;
+}
+.levelButtons{
+    height: 50px;
+    width: 175px;
+    border-radius: 20px;
+    background-color: rgba(240, 248, 255, 0.568);
+     font-family: "Carter One", system-ui;
+     font-weight: 400;
+     font-size: 20px;
+    font-style: normal;
 }
 /* media quries */
 
@@ -130,10 +149,10 @@ object-fit: cover;
     height: 75px;
     font-size: 20px;
     background-color: #ffffff36;
-    border-radius: 2px;
+    border-radius: 6px;
     border: 1.5px solid lightblue;
-    backdrop-filter: blur(2px);
-    box-shadow: 0px 0px 20px skyblue;
+    backdrop-filter: blur(4px);
+    box-shadow: 0px 0px 60px skyblue;
 }
 #board{
     display: grid;
@@ -150,11 +169,7 @@ top: 0;
 
 object-fit: cover;
 }
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+
 
 .commonFish{
     width: 80px;
@@ -167,7 +182,21 @@ object-fit: cover;
     border-radius: 17px;
     position: relative;
     top: 40px;
-    
+    font-family: "Carter One", system-ui;
+     font-weight: 400;
+    font-style: normal;
+    color:rgba(241, 196, 47, 0.836);
+    background-color: rgba(20, 202, 226, 0.664);
+    font-size: 22px;
+    border: 1.5px solid rgba(100, 38, 38, 0.801);;
+}
+.levelButtons{
+    height: 45px;
+    width: 170px;
+    border-radius: 18px;
+    background-color: rgba(252, 120, 120, 0.404);
+    color: rgb(236, 8, 236);
+    font-weight: bold;
 }
 
 }

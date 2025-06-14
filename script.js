@@ -91,25 +91,16 @@ window.onload = function () {
             pVspButton.style.display="none";
 
             let easyButton = document.createElement("button");
-            easyButton.className="levelButtons"
-            easyButton.className="levelButtons"
-            easyButton.className="levelButtons"
+            easyButton.className="levelButtons";
             easyButton.textContent = "EASY";
-            easyButton.style.height = "50px";
-            easyButton.style.width = "175px";
-            easyButton.style.borderRadius = "20px";
-
+           
             let mediumButton = document.createElement("button");
+            mediumButton.className="levelButtons";
             mediumButton.textContent = "MEDIUM";
-            mediumButton.style.height = "50px";
-            mediumButton.style.width = "175px";
-            mediumButton.style.borderRadius = "20px";
-
+            
             let hardButton = document.createElement("button");
+            hardButton.className="levelButtons";
             hardButton.textContent = "HARD";
-            hardButton.style.height = "50px";
-            hardButton.style.width = "175px";
-            hardButton.style.borderRadius = "20px";
 
             frontBackground.appendChild(easyButton);
             frontBackground.appendChild(mediumButton);
@@ -138,6 +129,9 @@ window.onload = function () {
                 createGameBoard(frontBackground, "bot", "hard");
                 secondBackground();
             });
+
+        
+
         });
     });
 
@@ -151,10 +145,7 @@ function createGameBoard(parentDiv, mode, difficulty) {
     topHeading.remove();
     
     levelButton.textContent=boardTopDisplay
-    levelButton.style.color = "brown";
     
-
-
     let board = document.createElement("div");
     board.id="board"
     board.style.display = "grid";
@@ -179,13 +170,13 @@ function createGameBoard(parentDiv, mode, difficulty) {
 
                 if (checkWinner()) {
                     let winner = currentPlayer === xYellowStarGif ? "YELLOW" : "BLUE";
-                    alert(winner + " Wins!");
+                    // alert(winner + " Wins!");
                     outputText.textContent = `${winner} WINS!`;
                     disableAllButtons();
                     resetOptions(cells, parentDiv);
                     return;
                 } else if (isDraw()) {
-                    alert("Game Draw");
+                    // alert("Game Draw");
                     outputText.textContent = "GAME DRAW!";
                     resetOptions(cells, parentDiv);
                     return;
@@ -237,13 +228,13 @@ function createGameBoard(parentDiv, mode, difficulty) {
 
     function postBot() {
         if (checkWinner()) {
-            alert("YELLOW Wins");
+            // alert("YELLOW Wins");
             outputText.textContent = "BLUE WINS!";
             disableAllButtons();
             resetOptions(cells, board);
             return;
         } else if (isDraw()) {
-            alert("Draw Game");
+            // alert("Draw Game");
             outputText.textContent = "GAME DRAW!";
             resetOptions(cells, board);
             return;
@@ -308,11 +299,7 @@ function resetOptions(resetButtons, container) {
     resetButton.textContent = "RESET";
     resetButton.className="resetButton";
     resetButtonDiv.appendChild(resetButton);
-
-    let backButton = document.createElement("Button");
-    backButton.textContent = "BACK";
-    backButton.className="resetButton";
-    resetButtonDiv.appendChild(backButton);
+   
 
     resetButton.addEventListener("click", () => {
         for (let element of resetButtons) {
@@ -322,14 +309,7 @@ function resetOptions(resetButtons, container) {
         }
         outputText.textContent = "";
         resetButton.remove();
-        backButton.style.display="none";
-    });
 
-//   backButton.addEventListener("click",()=>{
-//     board.style.display="none";
-//     resetButton.display="none"
-//     backButton.style.display="none"
-//     pVscButton.style.display="unset";
-//     pVspButton.style.display="unset";
-//   })
+    });
+    
 }
