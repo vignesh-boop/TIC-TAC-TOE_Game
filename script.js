@@ -1,10 +1,3 @@
-document.body.style.height = "100vh";
-document.body.style.width = "100%";
-document.body.style.display = "flex";
-document.body.style.flexDirection = "column";
-document.body.style.justifyContent = "center";
-document.body.style.alignItems = "center";
-document.body.style.overflow = "hidden";
 
 // link of the fonts
 let link = document.createElement("link");
@@ -13,9 +6,16 @@ document.head.appendChild(link);
 document.body.style.fontFamily = "Poppins, sans-serif";
 document.body.style.fontWeight = 800;
 
+
+let levelButton = document.createElement("h2");
+levelButton.id="levelButton";
+document.body.append(levelButton)
+
+
 // frontpage background vedio
 let backgroundVedio = document.createElement("video");
 backgroundVedio.src = "asserts/backgroundVedio1.mp4";
+backgroundVedio.id = "video1"
 backgroundVedio.autoplay = true;
 backgroundVedio.muted = true;
 backgroundVedio.loop = true;
@@ -30,22 +30,23 @@ function secondBackground() {
     backgroundVedio.remove();
     let gameBoardBackgroundVedio = document.createElement("video");
     gameBoardBackgroundVedio.src = "asserts/244754_small.mp4";
+    gameBoardBackgroundVedio.id="video2"
     gameBoardBackgroundVedio.muted = true;
     gameBoardBackgroundVedio.autoplay = true;
     gameBoardBackgroundVedio.loop = true;
     gameBoardBackgroundVedio.style.objectFit = "cover";
     gameBoardBackgroundVedio.style.position = "fixed";
     gameBoardBackgroundVedio.style.zIndex = "-1";
-    gameBoardBackgroundVedio.style.width = "100%";
+    
     gameBoardBackgroundVedio.style.left = "0";
     document.body.append(gameBoardBackgroundVedio);
 }
 
 let topHeading = document.createElement("h1");
-topHeading.textContent = "TIC TAC TEO GAME";
+topHeading.textContent = "TIC TAC TOE GAME";
+topHeading.id="heading";
 topHeading.style.fontFamily = "Poppins, sans-serif";
 topHeading.style.fontWeight = "800";
-topHeading.style.color = "white";
 document.body.append(topHeading);
 
 let outputText = document.createElement("h2");
@@ -55,16 +56,12 @@ document.body.append(outputText);
 
 window.onload = function () {
     let frontBackground = document.createElement("div");
-    frontBackground.style.display = "flex";
-    frontBackground.style.justifyContent = "center";
-    frontBackground.style.alignItems = "center";
-    frontBackground.style.gap = "50px";
+   frontBackground.id="frontBackground";
+
 
     let startButton = document.createElement("button");
-    startButton.style.height = "60px";
-    startButton.style.width = "200px";
-    startButton.style.borderRadius = "20px";
-    startButton.textContent = "Start Game";
+    startButton.id ="startButton";
+    startButton.textContent = "START GAME";
     frontBackground.appendChild(startButton);
 
     startButton.addEventListener("click", () => {
@@ -72,45 +69,44 @@ window.onload = function () {
 
         let pVspButton = document.createElement("button");
         pVspButton.textContent = "Player v/s Player";
-        pVspButton.style.borderRadius = "20px";
-        pVspButton.style.height = "60px";
-        pVspButton.style.width = "200px";
-
+        pVspButton.className="commonButtonPlayer";
+        
         let pVscButton = document.createElement("button");
-        pVscButton.textContent = "Player v/s Bot";
-        pVscButton.style.height = "60px";
-        pVscButton.style.width = "200px";
-        pVscButton.style.borderRadius = "20px";
+        pVscButton.textContent = "Player v/s Bot";  
+        pVscButton.className="commonButtonPlayer";
 
         frontBackground.appendChild(pVspButton);
         frontBackground.appendChild(pVscButton);
 
         pVspButton.addEventListener("click", () => {
-            pVscButton.remove();
-            pVspButton.remove();
+            pVscButton.style.display="none";
+            pVspButton.style.display="none";
             backgroundVedio.remove();
             secondBackground();
             createGameBoard(frontBackground);
         });
 
         pVscButton.addEventListener("click", () => {
-            pVscButton.remove();
-            pVspButton.remove();
+            pVscButton.style.display="none";
+            pVspButton.style.display="none";
 
             let easyButton = document.createElement("button");
-            easyButton.textContent = "Easy";
+            easyButton.className="levelButtons"
+            easyButton.className="levelButtons"
+            easyButton.className="levelButtons"
+            easyButton.textContent = "EASY";
             easyButton.style.height = "50px";
             easyButton.style.width = "175px";
             easyButton.style.borderRadius = "20px";
 
             let mediumButton = document.createElement("button");
-            mediumButton.textContent = "Medium";
+            mediumButton.textContent = "MEDIUM";
             mediumButton.style.height = "50px";
             mediumButton.style.width = "175px";
             mediumButton.style.borderRadius = "20px";
 
             let hardButton = document.createElement("button");
-            hardButton.textContent = "Hard";
+            hardButton.textContent = "HARD";
             hardButton.style.height = "50px";
             hardButton.style.width = "175px";
             hardButton.style.borderRadius = "20px";
@@ -152,33 +148,27 @@ function createGameBoard(parentDiv, mode, difficulty) {
     let boardTopDisplay = (difficulty === "easy") ? "EASY"
         : (difficulty === "medium") ? "MEDIUM"
             : (difficulty === "hard") ? "HARD" : "";
+    topHeading.remove();
+    
+    levelButton.textContent=boardTopDisplay
+    levelButton.style.color = "brown";
+    
 
-    topHeading.textContent = boardTopDisplay;
-    topHeading.style.color = "brown";
 
     let board = document.createElement("div");
+    board.id="board"
     board.style.display = "grid";
-    board.style.gridTemplateColumns = "repeat(3,100px)";
-    board.style.gridTemplateRows = "repeat(3,100px)";
-    board.style.gap = "5px";
-    board.style.marginTop = "20px";
+   
 
-    let xYellowStarGif = `<img src="./asserts/star-19.gif" width="80" height="80">`;
-    let yBlueStarGif = `<img src="./asserts/starfish-20931.gif" width="80" height="80">`;
+    let xYellowStarGif = `<img src="./asserts/star-19.gif" class="commonFish">`;
+    let yBlueStarGif = `<img src="./asserts/starfish-20931.gif" class="commonFish">`;
 
     let currentPlayer = xYellowStarGif;
     let cells = [];
 
     for (let index = 0; index < 9; index++) {
         let cell = document.createElement("button");
-        cell.style.width = "100px";
-        cell.style.height = "100px";
-        cell.style.fontSize = "24px";
-        cell.style.backgroundColor = "#ffffff36";
-        cell.style.borderRadius = "6px";
-        cell.style.border = "1.5px solid lightblue";
-        cell.style.backdropFilter = "blur(4px)";
-        cell.style.boxShadow = "0px 0px 20px skyblue";
+        cell.id="cell"
 
         cell.addEventListener("click", () => {
             if (cell.innerHTML === "") {
@@ -247,8 +237,8 @@ function createGameBoard(parentDiv, mode, difficulty) {
 
     function postBot() {
         if (checkWinner()) {
-            alert("Y Wins");
-            outputText.textContent = "Y WINS!";
+            alert("YELLOW Wins");
+            outputText.textContent = "BLUE WINS!";
             disableAllButtons();
             resetOptions(cells, board);
             return;
@@ -311,16 +301,18 @@ function createGameBoard(parentDiv, mode, difficulty) {
 
 function resetOptions(resetButtons, container) {
     let resetButtonDiv = document.createElement("div");
+    resetButtonDiv.id="resetButtonDiv";
     document.body.append(resetButtonDiv);
 
     let resetButton = document.createElement("Button");
-    resetButton.textContent = "Reset";
-    resetButton.style.width = "200px";
-    resetButton.style.height = "40px";
-    resetButton.style.borderRadius = "20px";
-    resetButton.style.position = "relative";
-    resetButton.style.top = "20px";
+    resetButton.textContent = "RESET";
+    resetButton.className="resetButton";
     resetButtonDiv.appendChild(resetButton);
+
+    let backButton = document.createElement("Button");
+    backButton.textContent = "BACK";
+    backButton.className="resetButton";
+    resetButtonDiv.appendChild(backButton);
 
     resetButton.addEventListener("click", () => {
         for (let element of resetButtons) {
@@ -330,5 +322,14 @@ function resetOptions(resetButtons, container) {
         }
         outputText.textContent = "";
         resetButton.remove();
+        backButton.style.display="none";
     });
+
+//   backButton.addEventListener("click",()=>{
+//     board.style.display="none";
+//     resetButton.display="none"
+//     backButton.style.display="none"
+//     pVscButton.style.display="unset";
+//     pVspButton.style.display="unset";
+//   })
 }

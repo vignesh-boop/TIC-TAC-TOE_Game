@@ -1,0 +1,173 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#heading{
+        color :white;
+        font-size: 100px;
+        background:  linear-gradient(to left ,rgb(39, 54, 61),rgb(235, 177, 123));
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+    }
+#startButton{
+    height: 60px;
+    width: 200px;
+    border-radius: 20px;
+}
+.commonButtonPlayer{
+    height: 60px;
+    width:200px;
+    border-radius: 20px;
+}
+#frontBackground{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+#cell{
+    width: 100px;
+    height: 100px;
+    font-size: 24px;
+    background-color: #ffffff36;
+    border-radius: 6px;
+    border: 1.5px solid lightblue;
+    backdrop-filter: blur(4px);
+    box-shadow: 0px 0px 20px skyblue;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#levelButton{
+    font-size: 50px;
+    font-weight: bold;
+}
+#board{
+    display: grid;
+    grid-template-columns: repeat(3,100px);
+    grid-template-rows: repeat(3,100px);
+    gap: 1px;
+    margin-top: 20px;
+    
+}
+
+#video2{
+width :100%;
+height:100vh;
+object-fit: cover;
+}
+
+.commonFish{
+    width: 80px;
+    height: 80px;
+}
+
+.resetButton{
+    width: 140px;
+    height: 40px;
+    border-radius: 20px;
+    position: relative;
+    top: 40px;
+}
+#resetButtonDiv{
+    display: flex;
+    gap: 20px;
+}
+/* media quries */
+
+@media(min-width:320px) and (max-width:425px){
+    /* front page text content */
+    #heading{
+        color :skyblue;
+        font-size: 25px;
+        background:  linear-gradient(to left ,rgb(9, 59, 83),rgb(235, 159, 89));
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+    }
+
+    /* start button  */
+    #startButton{
+        font-family:Georgia, 'Times New Roman', Times, serif ;
+        font-weight: bold;
+        background-color: transparent;
+        height: 50px;
+         width: 140px;
+        border-radius: 15px;
+        border: 2px solid rgb(112, 89, 214);
+        color: rgb(41, 108, 167);
+    }
+
+    #frontBackground{
+    gap: 30px;
+    flex-direction:column;
+}
+
+
+    /* player vs player player vs bot button */
+
+    .commonButtonPlayer{
+    height: 40px;
+    width:150px;
+    border-radius: 20px;
+    border-radius: 15px;
+    border: 2px solid rgb(112, 89, 214);
+    color: rgb(41, 108, 167);
+    background-color: transparent;
+}
+
+#cell{
+    width: 75px;
+    height: 75px;
+    font-size: 20px;
+    background-color: #ffffff36;
+    border-radius: 2px;
+    border: 1.5px solid lightblue;
+    backdrop-filter: blur(2px);
+    box-shadow: 0px 0px 20px skyblue;
+}
+#board{
+    display: grid;
+    grid-template-columns: repeat(3,75px);
+    grid-template-rows: repeat(3,75px);
+    gap: 5px;
+    margin-top: 20px;
+}
+
+#video2{
+width :100%;
+height:100vh;
+top: 0;
+
+object-fit: cover;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.commonFish{
+    width: 80px;
+    height: 80px;
+} 
+
+.resetButton{
+    width: 120px;
+    height: 40px;
+    border-radius: 17px;
+    position: relative;
+    top: 40px;
+    
+}
+
+}
